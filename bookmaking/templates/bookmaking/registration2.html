@@ -1,0 +1,17 @@
+{% extends 'bookmaking/base.html' %}
+{% load staticfiles %}
+{{ errors }}
+
+{% block content %}
+
+<form action="/registration" method="POST">
+    <div class="reg">
+       <h3>Регистрация</h3>
+       {{ form }}
+
+    {% csrf_token %}
+
+   <button type="submit">Зарегистрироваться</button>
+    </div>
+</form>
+{% endblock content %}

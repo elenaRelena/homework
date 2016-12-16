@@ -1,0 +1,38 @@
+    h1 a {
+        color: #FCA205;
+    }
+
+        body {
+        padding-left: 25px;
+    }
+    .page-header {
+        background-color: #E9CF96;
+        font-family: 'BRITANNIC BOLD';
+        margin-top: 0;
+        font-size: 36pt;
+        padding: 20px 20px 20px 40px;
+    }
+
+    .page-header h1 {
+        color: #ffffff;
+        font-size: 36pt;
+        text-decoration: none;
+    }
+
+    .page-header h1 a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .content {
+        margin-left: 30px;
+        font-family: 'commercialscript bt';
+    }
+    div.hello {
+        font-size: 20pt;
+        font-style: italic;
+
+    }
+    .reg {
+      text-align: right;
+    }

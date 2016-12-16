@@ -1,0 +1,30 @@
+{% extends 'bookmaking/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	<h4>Список пользователей</h4>
+	<div class="container">
+
+    <table class="table table-striped">
+ <thead>
+ <tr>
+ <th>Имя</th>
+ <th>Возраст</th>
+ <th>Контактные данные</th>
+ <th>Размер ставки</th>
+ </tr>
+ </thead>
+ 
+ <tbody>
+  {% for user in users %}
+ <tr>
+ <td>{{user.name}}</td>
+ <td>{{user.age}}</td>
+ <td>{{user.contacts}}</td>
+ <td>{{user.stake}}</td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>   
+	</div>   
+{% endblock content %}

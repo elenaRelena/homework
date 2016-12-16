@@ -1,0 +1,15 @@
+{% extends 'bookmaking/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	{% for horse in horses %}
+	<div class="horse">
+		<h1><a href="/horse/{{horse.horse_id}}">{{ horse.name }}</a></h1>
+                <img src="{{ MEDIA_URL }}{{ horse.pic.url}}" width=150 crop="scale">
+                </p>
+                
+    </div>
+    {% endfor %}
+    {% include "pagination.html" with page=horses %}       
+    
+{% endblock %}

@@ -1,0 +1,11 @@
+ {% extends 'bookmaking/base.html' %}
+
+{% block content %}
+    <h1>Сделать ставку</h1>
+    {{ errors }}
+    <form method="POST" class="post-form">{% csrf_token %}
+        <table>{{ stake_form.as_table}}</table>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}

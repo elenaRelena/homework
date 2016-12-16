@@ -1,0 +1,66 @@
+ {% extends 'bookmaking/base.html' %}
+
+    {% block content %}
+        <div class="span12"><center> <h1>Профиль пользователя {{ user.username}}</h1> </center></div>
+
+        <div class="row">
+        <div class="col-md-4">
+        <div class="user">
+            <p>Имя: {{ user.first_name }}</p>
+            <p>Фамилия: {{ user.last_name|linebreaksbr }}</p>
+            <p>Эл.почта:  {{ user.email|linebreaksbr }}</p>
+        <div class="user1">
+          {% if user1.age != null %} <p>Возраст: {{ user1.age|linebreaksbr }}</p>{% endif %}
+          {% if user1.bank_account != null %} <p>Банковский аккаунт: {{ user1.bank_account|linebreaksbr }}</p>{% endif %}
+          {% if user1.contacts != null %} <p>Контакты: {{ user1.contacts|linebreaksbr }}</p>{% endif %}
+        </div>
+        </div>
+        </div>
+        <div class="col-md-5 col-md-offset-3">
+            {% if user1.avatar.url != null %}
+                <img src="{{ MEDIA_URL }}{{ user1.avatar.url}}" width=150 crop="scale">
+            {% endif %}
+        </div>
+        </div>
+        <div class="row">
+        <h3>Ваши ставки: {{ kol_stakes }}</h3>
+        <div class="col-md-5 offset-md-3">
+        <div class="stakes">
+          {% if stakes != null %}
+              {% for stake in stakes %}
+                <p>{{ stake.size}}   {{ stake.horse.name }}
+                    <a class="btn btn-default" href="{% url 'stake_remove' pk=stake.pk %}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </p>
+              {% endfor %}
+          {% endif %}
+        </div>
+        <a class="btn btn-default" href="/stake">Сделать ставку</a>
+        </div>
+        </div>
+
+        <div class="modal" id="modal1">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"></button>
+        <h4 class="modal-title">Сделать ставку</h4>
+      </div>
+      <div class="modal-body">
+            {{ errors }}
+            <form method="POST" class="post-form">{% csrf_token %}
+            <table>{{ stake_form.as_table}}</table>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="submit" class="save btn btn-default">Save</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+        </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    {% endblock %}
+

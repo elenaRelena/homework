@@ -1,0 +1,11 @@
+ {% extends 'bookmaking/base.html' %}
+
+    {% block content %}
+        <div class="horse">          
+            <h1>{{ horse.name }}</h1>
+                <p>{{ horse.info|linebreaksbr }}</p>
+                <p>{{ horse.age|linebreaksbr }}</p>
+                <p>{{ horse.ratio|linebreaksbr }}</p>
+        </div>
+
+    {% endblock %}

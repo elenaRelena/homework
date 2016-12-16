@@ -1,0 +1,12 @@
+{% extends 'bookmaking/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	{% for ride in rides %}
+	<div class="ride">
+		<h1><a href="/ride/{{ride.ride_id}}">{{ ride.date }}</a></h1>
+    </div>
+    {% endfor %}
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/my.js.js"></script>
+{% endblock %}

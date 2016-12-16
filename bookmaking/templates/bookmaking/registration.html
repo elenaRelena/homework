@@ -1,0 +1,30 @@
+{% extends 'bookmaking/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+{{ errors }}
+
+<form action="/registration" method="POST">
+   <label for="login">Логин</label>
+   <input type="text" name="username" id="login" value="{{ username }}"><br>
+
+   <label for="password">Пароль</label>
+   <input type="password" name="password" id="password"><br>
+
+   <label for="password">Пароль</label>
+   <input type="password" name="password2" id="password"><br>
+
+   <label for="password">Email</label>
+   <input type="text" name="email" id="password" value="{{ email }}"><br>
+
+   <label for="password">Фамилия</label>
+   <input type="text" name="surname" id="password" value="{{ surname }}"><br>
+
+   <label for="password">Имя</label>
+   <input type="text" name="name" id="password" value="{{ name }}"><br>
+
+   {% csrf_token %}
+
+   <button type="submit">Зарегистрироваться</button>
+</form>
+{% endblock content %}

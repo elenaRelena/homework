@@ -1,0 +1,16 @@
+{% extends 'bookmaking/base.html' %}
+
+{% block content %}
+    <h1>Редактор профиля</h1>
+
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            {{ form1.as_table }}
+
+        </table>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}
